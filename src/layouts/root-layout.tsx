@@ -3,6 +3,7 @@ import { Outlet } from "react-router";
 import { AppSidebar } from "@/components/app-sidebar";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Separator } from "@/components/ui/separator";
+import Footer from "@/components/app-footer";
 import {
   SidebarInset,
   SidebarProvider,
@@ -25,6 +26,7 @@ export default function RootLayout() {
         <main className="flex-1 p-4">
           <Outlet />
         </main>
+        <Footer />
       </SidebarInset>
     </SidebarProvider>
   );

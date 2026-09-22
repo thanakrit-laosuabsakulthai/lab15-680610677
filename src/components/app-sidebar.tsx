@@ -1,5 +1,6 @@
 import { BookOpen, Calendar, Home, Settings } from "lucide-react";
 import { Link, useLocation } from "react-router";
+import { currentUser } from "@/lib/mock-data";
 
 import {
   Sidebar,
@@ -11,7 +12,16 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarFooter,
 } from "@/components/ui/sidebar";
+
+import { Avatar , AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+
+
+
+
 
 const items = [
   { title: "หน้าแรก", url: "/", icon: Home },
@@ -23,6 +33,10 @@ const items = [
 export function AppSidebar() {
   const location = useLocation();
 
+  
+
+  
+  
   return (
     <Sidebar>
       <SidebarHeader>
@@ -48,6 +62,26 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+        
+        <SidebarFooter className="mt-auto">
+          <Separator className="my-2" />
+          <div className="flex items-center gap-2 px-2 py-1">
+            <Avatar>
+              <AvatarImage src={currentUser.avatar} />
+            </Avatar>
+            <div className="flex flex-col gap-0.5">
+              <span className="text-sm font-medium px-1">{currentUser.nickname}</span>
+              <Badge variant="outline" className="text-[10px]">{currentUser.role}</Badge>
+            </div>
+          </div>
+        </SidebarFooter>
+      
+        
+        
+        
+        
+        
+        
       </SidebarContent>
     </Sidebar>
   );
